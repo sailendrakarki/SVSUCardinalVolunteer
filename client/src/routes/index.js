@@ -10,7 +10,7 @@ import Welcome from '../components/welcome';
 
 const Routes = () => (
   <App>
-    <Route exact path="/" component={Welcome} />
+    <Route exact path="/" component={Signin} />
     <Route exact path="/signin" component={Signin} />
     <Route exact path="/signout" component={Signout} />
     <Route exact path="/signup" component={Signup} />

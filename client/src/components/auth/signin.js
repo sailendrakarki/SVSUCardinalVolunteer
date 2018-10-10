@@ -1,7 +1,10 @@
 import React, { PureComponent } from 'react';
-import { Field, reduxForm } from 'redux-form';
+import {reduxForm } from 'redux-form';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
+
+
 
 class Signin extends PureComponent {
   handleFormSubmit({ mail, password }) {
@@ -26,18 +29,26 @@ class Signin extends PureComponent {
     const { handleSubmit } = this.props;
 
     return (
-      <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
-        <fieldset className="form-group">
-          <label>Email:</label>
-          <Field className="form-control" name="mail" component="input" type="text" />
-        </fieldset>
-        <fieldset className="form-group">
-          <label>Password:</label>
-          <Field className="form-control" name="password" component="input" type="password" />
-        </fieldset>
-        {this.renderError()}
-        <button action="submit" className="btn btn-primary">Sign in</button>
-      </form>
+			<div className="col-sm-6 col-sm-offset-3">
+                <h2>Login</h2>
+                <form name="form" onSubmit={this.handleSubmit}>
+                    <div className='form-group'>
+                        <label htmlFor="username">Username</label>
+                        <input type="text" className="form-control" name="username"/>
+                        
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="password">Password</label>
+                        <input type="password" className="form-control" name="password"/>
+                        
+                    </div>
+                    <div className="form-group">
+                        <button className="btn btn-primary">Login</button>
+                        
+                        <Link to="/register" className="btn btn-link">Register</Link>
+                    </div>
+                </form>
+            </div>
     );
   }
 }
@@ -47,3 +58,4 @@ const mapStateToProps = state => ({ errorMessage: state.auth.error });
 export default reduxForm({
   form: 'signin',
 })(connect(mapStateToProps, actions)(Signin));
+

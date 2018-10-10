@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Header from './header';
+//import Header from './header';
 
 const App = ({ children }) => (
-  <div>
-    <Header />
-    <div className="container" style={{ marginTop: '50px' }}>
-      <div className="row">
-        <div className="col-md-12">
+ 
+  <div className="jumbotron">
+    <div className="container">
+    
+        <div className="col-sm-8 col-sm-offset-2">
           {children}
         </div>
-      </div>
+    
     </div>
   </div>
 );
