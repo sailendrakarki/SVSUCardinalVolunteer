@@ -4,15 +4,12 @@ import PropTypes from 'prop-types';
 
 const App = ({ children }) => (
  
-  <div className="jumbotron">
     <div className="container">
     
-        <div className="col-sm-8 col-sm-offset-2">
           {children}
-        </div>
     
     </div>
-  </div>
+ 
 );
 
 App.propTypes = {

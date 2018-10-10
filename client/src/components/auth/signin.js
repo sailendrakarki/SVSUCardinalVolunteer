@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import {reduxForm } from 'redux-form';
+import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
@@ -16,7 +16,7 @@ class Signin extends PureComponent {
       return (
         <div className="alert alert-danger">
           <string>
-            Oops!
+            Sorry!
             {' '}
             {this.props.errorMessage}
           </string>
@@ -29,26 +29,30 @@ class Signin extends PureComponent {
     const { handleSubmit } = this.props;
 
     return (
-			<div className="col-sm-6 col-sm-offset-3">
-                <h2>Login</h2>
-                <form name="form" onSubmit={this.handleSubmit}>
-                    <div className='form-group'>
-                        <label htmlFor="username">Username</label>
-                        <input type="text" className="form-control" name="username"/>
-                        
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="password">Password</label>
-                        <input type="password" className="form-control" name="password"/>
-                        
-                    </div>
-                    <div className="form-group">
-                        <button className="btn btn-primary">Login</button>
-                        
-                        <Link to="/register" className="btn btn-link">Register</Link>
-                    </div>
-                </form>
-            </div>
+      <div className="login-form">
+
+
+        <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+          <h2 className="text-center">Log in</h2>
+          {this.renderError()}
+          <div className="form-group">
+            <Field component="input" name="mail" type="text" className="form-control" placeholder="Username" />
+          </div>
+          <div className="form-group">
+            <Field component="input" name="password" type="password" className="form-control" placeholder="Password" />
+          </div>
+          <div className="form-group">
+            <button type="submit" className="btn btn-primary btn-block">Log in</button>
+          </div>
+          <div className="clearfix">
+            <p className="text-center"> Not Member? <Link to="./Signup" className="Register-page">
+              Register Here!
+            </Link></p>
+          </div>
+        </form>
+
+      </div>
+
     );
   }
 }

@@ -1,7 +1,9 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import {Link} from 'react-router-dom';
 import * as actions from '../actions';
+
 
 class Postings extends PureComponent {
   postings = this.props.postings
@@ -22,9 +24,11 @@ class Postings extends PureComponent {
     return (
       <div>
         <h4>Postings</h4>
+        
         <ul>
           {this.renderPostings()}
         </ul>
+        <Link to='/Signout'>Log out</Link>
       </div>
     );
   }
