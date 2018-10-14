@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
 import * as actions from '../actions';
+import Header from './header';
 
 
 class Postings extends PureComponent {
@@ -13,7 +14,14 @@ class Postings extends PureComponent {
   }
 
   renderPostings() {
-    return this.props.postings.map(posting => <li key={posting}>{posting}</li>);
+    return this.props.postings.map(posting => {
+      return (
+      <div>
+        <p>Title: {posting.title}</p>
+        <p>Description: {posting.description}</p>
+        <p>Created: {posting.createdAt}</p>
+      </div>)
+  });
   }
 
   render() {
@@ -22,13 +30,15 @@ class Postings extends PureComponent {
     }
 
     return (
+      
       <div>
+        <Header />
         <h4>Postings</h4>
         
         <ul>
           {this.renderPostings()}
         </ul>
-        <Link to='/Signout'>Log out</Link>
+        <Link to='../Signout'>Log out</Link>
       </div>
     );
   }

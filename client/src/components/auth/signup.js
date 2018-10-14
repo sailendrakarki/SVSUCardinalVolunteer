@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions';
 
 class Signup extends PureComponent {
+  
   handleFormSubmit(formProps) {
     this.props.signupUser(formProps);
   }
@@ -36,6 +37,7 @@ class Signup extends PureComponent {
 
   render() {
     const { handleSubmit, submitting } = this.props;
+    
 
     return (
       <div className="register-form">

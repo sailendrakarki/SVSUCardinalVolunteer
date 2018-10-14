@@ -8,12 +8,14 @@ import Signup from '../components/auth/signup';
 import Postings from '../components/postings';
 import Welcome from '../components/welcome';
 
+
 const Routes = () => (
   <App>
     <Route exact path="/" component={Signin} />
     <Route exact path="/signin" component={Signin} />
     <Route exact path="/signout" component={Signout} />
-    <Route exact path="/signup" component={Signup} />
+   
+    <Route exact path={"/signup/:id"} component={Signup} />
     <Route exact path="/postings" component={RequireAuth(Postings)} />
   </App>
 );

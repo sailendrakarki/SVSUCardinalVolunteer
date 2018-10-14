@@ -45,9 +45,17 @@ class Signin extends PureComponent {
             <button type="submit" className="btn btn-primary btn-block">Log in</button>
           </div>
           <div className="clearfix">
-            <p className="text-center"> Not Member? <Link to="./Signup" className="Register-page">
-              Register Here!
-            </Link></p>
+            <p className="text-center"> Not Member? Join As</p> 
+            <hr />
+            
+            <Link to="./Signup/1" className="btn btn-primary btn-small student-link-button" role="button">
+              Volunteer
+            </Link>
+           
+            <Link to="./Signup/2" className="btn btn-primary btn-small" role="button">
+              Community Partner
+            </Link>
+           
           </div>
         </form>
 
